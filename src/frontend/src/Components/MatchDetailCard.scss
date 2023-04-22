@@ -1,0 +1,20 @@
+.matchDetailCard{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+
+    .matchDate,.matchVenue,.matchResult{
+        margin-top: 10px;
+    }
+
+    .matchResult{
+        color:aqua;
+    }
+
+    .additionalDetail{
+        text-align: right;
+        & > p{
+            margin-bottom: 20px;
+        }
+    }
+}

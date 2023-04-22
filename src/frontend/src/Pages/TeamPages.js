@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { MatchDetailCard } from '../Components/MatchDetailCard'
 import { MatchSmallCard } from '../Components/MatchSmallCard'
 import { useParams } from 'react-router-dom';
+import './TeamPages.scss';
+import { PieChart } from 'react-minimal-pie-chart';
 
 export const TeamPages=() => {
     const [team,setTeam]=useState({matches:[]});
-    const {teamName}=useParams();
+    const {teamName,year}=useParams();
     useEffect(
         ()=>{
             const fetchMatches=async()=>{
@@ -23,10 +25,27 @@ export const TeamPages=() => {
   return (
    
     <div className='teamPages'>
-        <h1>{team.teamName}</h1>
-        <MatchDetailCard teamName={team.teamName} match={team.matches[0]}/>
-        {team.matches?.slice(1).map(match=><MatchSmallCard teamName={team.teamName} match={match}/>)}
-        
+    <div className='teamName'>
+    <h1 className='teamNameSection'>{team.teamName}</h1>
     </div>
+    <div className='winLoss'>
+        Wins/Losses
+        <PieChart
+data={[
+{ title: 'Wins', value: team.totalWins, color: '#4da375' },
+{ title: 'Losses', value:team.totalMatches-team.totalWins, color: '#a34d5d' },
+]}
+/>
+        </div>
+    
+    <div className='matchDetailCard'>
+    <h3>Latest Matches</h3>
+    <MatchDetailCard teamName={team.teamName} match={team.matches[0]}/>
+    </div>
+    {team.matches?.slice(1).map(match=><MatchSmallCard team={team.teamName} match={match}/>)}
+    <div className='more'>
+        <a href={`http://localhost:8080/team/${teamName}/matches?year=${year}`}>More ></a>
+    </div>
+</div>
   )
 }
