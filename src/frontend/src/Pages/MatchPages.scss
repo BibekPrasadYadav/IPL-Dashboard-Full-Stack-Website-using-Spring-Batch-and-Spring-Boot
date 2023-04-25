@@ -1,0 +1,11 @@
+.matchPages{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+.yearSelector {
+    justify-self: end;
+    padding: 20px;
+}
+.pageHeading {
+    margin: 20px auto;
+}

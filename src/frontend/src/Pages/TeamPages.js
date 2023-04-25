@@ -4,6 +4,7 @@ import { MatchSmallCard } from '../Components/MatchSmallCard'
 import { useParams } from 'react-router-dom';
 import './TeamPages.scss';
 import { PieChart } from 'react-minimal-pie-chart';
+import { Link } from 'react-router-dom';
 
 export const TeamPages=() => {
     const [team,setTeam]=useState({matches:[]});
@@ -17,7 +18,7 @@ export const TeamPages=() => {
                 console.log(data);
             };
             fetchMatches();
-        },[teamName]
+        },[teamName,year]
     );
     if(!team || !team.teamName){
         return <h1>Team Not Found</h1>;
@@ -44,7 +45,7 @@ data={[
     </div>
     {team.matches?.slice(1).map(match=><MatchSmallCard team={team.teamName} match={match}/>)}
     <div className='more'>
-        <a href={`http://localhost:8080/team/${teamName}/matches?year=${year}`}>More ></a>
+    <Link to={`/teams/${teamName}/match/${process.env.REACT_APP_DATA_END_YEAR}`}>More ></Link>
     </div>
 </div>
   )
