@@ -1,5 +1,4 @@
 {
-  "homepage": "https://Hitman315.github.io/ipl_dashboard",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
@@ -18,8 +17,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    
     "start": "react-scripts start",
     "build": "react-scripts build && xcopy .\\build\\* ..\\main\\resources\\public\\ /s /y",
     "test": "react-scripts test",
@@ -44,7 +42,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^5.0.0",
     "node-sass": "^7.0.3"
   }
 }
