@@ -4,7 +4,7 @@ import './MatchDetailCard.scss';
 
 export const MatchDetailCard=({match,teamName})=> {
     if(!match) return null;
-    const otherTeam= match.team1==teamName ? match.team2 : match.team1;
+    const otherTeam= match.team1===teamName ? match.team2 : match.team1;
     const otherTeamRoute=`/teams/${otherTeam}`;
     const isMatchWon = teamName === match.matchWinner;
     return (
@@ -14,7 +14,7 @@ export const MatchDetailCard=({match,teamName})=> {
         <h1> <Link to={otherTeamRoute}>{otherTeam}</Link></h1>
         <h2 className='matchDate'>{match.date}</h2>
         <h3 className='matchVenue'>at {match.venue}</h3>
-        <h3 className='matchResult'>{match.matchWinner} won by {match.resultMargin} {match.result}</h3>
+        <h3 className='matchResult'>{match.winningTeam} won by {match.margin} {match.wonBy}</h3>
     </div>
  
     <div className="additionalDetail">

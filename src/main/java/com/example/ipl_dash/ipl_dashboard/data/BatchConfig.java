@@ -25,13 +25,10 @@ import com.example.ipl_dash.ipl_dashboard.model.Match;
 @Configuration
 public class BatchConfig {
 
-    private final String[] FIELD_NAMES = new String[] { "match_id"
-    ,"season","date", "city","venue", "team1", "team2"
-    , "toss_winner", "toss_decision", "player_of_match", "winner"
-    ,"winner_wickets"
-    ,"winner_runs","outcome","result_type","results","gender"
-    ,"event","match_number","umpire1","umpire2","reserve_umpire"
-    ,"tv_umpire","match_referee","eliminator","method","date_1"
+    private final String[] FIELD_NAMES = new String[] { "match_id","city","date","season",
+    "match_number","team1","team2","venue","toss_winner","toss_decision","super_over",
+    "winning_team","won_by","margin","method","player_of_match","team1_players","team2_players",
+    "umpire1","umpire2"
              };
 
     @Bean
@@ -56,8 +53,8 @@ public MatchDataProcessor processor() {
 public JdbcBatchItemWriter<Match> writer(DataSource dataSource) {
   return new JdbcBatchItemWriterBuilder<Match>()
     .itemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>())
-    .sql("INSERT INTO match (match_id,date,city,venue,team1,team2,toss_winner,toss_decision,player_of_match,result_type,results,umpire1,umpire2,match_referee)"
-    +"VALUES (:matchId,:date,:city,:venue,:team1,:team2,:tossWinner,:tossDecision,:playerOfMatch,:resultType,:results,:umpire1,:umpire2,:matchReferee)")
+    .sql("INSERT INTO match (match_id,date,city,venue,team1,team2,toss_winner,toss_decision,player_of_match,winning_team,margin,umpire1,umpire2,won_by)"
+    +"VALUES (:matchId,:date,:city,:venue,:team1,:team2,:tossWinner,:tossDecision,:playerOfMatch,:winningTeam,:margin,:umpire1,:umpire2,:wonBy)")
     .dataSource(dataSource)
     .build();
 }

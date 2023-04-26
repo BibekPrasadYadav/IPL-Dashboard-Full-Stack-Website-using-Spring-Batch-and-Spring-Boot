@@ -1,33 +1,26 @@
 package com.example.ipl_dash.ipl_dashboard.data;
 
 public class MatchInput {
-private String match_id;
-private String season;
-private String date;
-private String city;
-private String venue;
-private String team1;
-private String team2;
-private String toss_winner;
-private String toss_decision;
-private String player_of_match;
-private String winner;
-private String winner_wickets;
-private String winner_runs;
-private String outcome;
-private String result_type;
-private String results;
-private String gender;
-private String event;
-private String match_number;
-private String umpire1;
-private String umpire2;
-private String reserve_umpire;
-private String tv_umpire;
-private String match_referee;
-private String eliminator;
-private String method;
-private String date_1;
+    private String match_id;
+    private String city;
+    private String date;
+    private String season;
+    private String match_number;
+    private String team1;
+    private String team2;
+    private String venue;
+    private String toss_winner;
+    private String toss_decision;
+    private String super_over;
+    private String winning_team;
+    private String won_by;
+    private String margin;
+    private String method;
+    private String player_of_match;
+    private String team1_players;
+    private String team2_players;
+    private String umpire1;
+    private String umpire2;
 public String getMatch_id() {
     return match_id;
 }
@@ -88,56 +81,45 @@ public String getPlayer_of_match() {
 public void setPlayer_of_match(String player_of_match) {
     this.player_of_match = player_of_match;
 }
-public String getWinner() {
-    return winner;
-}
-public void setWinner(String winner) {
-    this.winner = winner;
-}
-public String getWinner_wickets() {
-    return winner_wickets;
-}
-public void setWinner_wickets(String winner_wickets) {
-    this.winner_wickets = winner_wickets;
-}
-public String getWinner_runs() {
-    return winner_runs;
-}
-public void setWinner_runs(String winner_runs) {
-    this.winner_runs = winner_runs;
-}
-public String getOutcome() {
-    return outcome;
-}
-public void setOutcome(String outcome) {
-    this.outcome = outcome;
-}
-public String getResult_type() {
-    return result_type;
-}
-public void setResult_type(String result_type) {
-    this.result_type = result_type;
-}
-public String getResults() {
-    return results;
-}
-public void setResults(String results) {
-    this.results = results;
-}
-public String getGender() {
-    return gender;
-}
-public void setGender(String gender) {
-    this.gender = gender;
-}
-public String getEvent() {
-    return event;
-}
-public void setEvent(String event) {
-    this.event = event;
-}
+
 public String getMatch_number() {
     return match_number;
+}
+public String getSuper_over() {
+    return super_over;
+}
+public void setSuper_over(String super_over) {
+    this.super_over = super_over;
+}
+public String getWinning_team() {
+    return winning_team;
+}
+public void setWinning_team(String winning_team) {
+    this.winning_team = winning_team;
+}
+public String getWon_by() {
+    return won_by;
+}
+public void setWon_by(String won_by) {
+    this.won_by = won_by;
+}
+public String getMargin() {
+    return margin;
+}
+public void setMargin(String margin) {
+    this.margin = margin;
+}
+public String getTeam1_players() {
+    return team1_players;
+}
+public void setTeam1_players(String team1_players) {
+    this.team1_players = team1_players;
+}
+public String getTeam2_players() {
+    return team2_players;
+}
+public void setTeam2_players(String team2_players) {
+    this.team2_players = team2_players;
 }
 public void setMatch_number(String match_number) {
     this.match_number = match_number;
@@ -154,42 +136,14 @@ public String getUmpire2() {
 public void setUmpire2(String umpire2) {
     this.umpire2 = umpire2;
 }
-public String getReserve_umpire() {
-    return reserve_umpire;
-}
-public void setReserve_umpire(String reserve_umpire) {
-    this.reserve_umpire = reserve_umpire;
-}
-public String getTv_umpire() {
-    return tv_umpire;
-}
-public void setTv_umpire(String tv_umpire) {
-    this.tv_umpire = tv_umpire;
-}
-public String getMatch_referee() {
-    return match_referee;
-}
-public void setMatch_referee(String match_referee) {
-    this.match_referee = match_referee;
-}
-public String getEliminator() {
-    return eliminator;
-}
-public void setEliminator(String eliminator) {
-    this.eliminator = eliminator;
-}
+
 public String getMethod() {
     return method;
 }
 public void setMethod(String method) {
     this.method = method;
 }
-public String getDate_1() {
-    return date_1;
-}
-public void setDate_1(String date_1) {
-    this.date_1 = date_1;
-}
+
 
 
 }
