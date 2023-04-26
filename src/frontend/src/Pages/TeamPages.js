@@ -3,7 +3,6 @@ import { MatchDetailCard } from '../Components/MatchDetailCard'
 import { MatchSmallCard } from '../Components/MatchSmallCard'
 import { useParams } from 'react-router-dom';
 import './TeamPages.scss';
-import { PieChart } from 'react-minimal-pie-chart';
 import { Link } from 'react-router-dom';
 
 export const TeamPages=() => {
@@ -12,7 +11,7 @@ export const TeamPages=() => {
     useEffect(
         ()=>{
             const fetchMatches=async()=>{
-                const response=await fetch(`http://localhost:8080/team/${teamName}`);
+                const response=await fetch(`${process.env.REACT_APP_API_ROOT_URL}/team/${teamName}`);
                 const data=await response.json();
                setTeam(data);
                 console.log(data);
@@ -38,7 +37,7 @@ export const TeamPages=() => {
     <h3>Latest Matches</h3>
     <MatchDetailCard teamName={team.teamName} match={team.matches[0]}/>
     </div>
-    {team.matches?.slice(1).map(match=><MatchSmallCard team={team.teamName} match={match}/>)}
+    {team.matches?.slice(1).map(match=><MatchSmallCard key={match.matchId} team={team.teamName} match={match}/>)}
     <div className='more'>
     <Link to={`/teams/${teamName}/match/${process.env.REACT_APP_DATA_END_YEAR}`}>More ></Link>
     </div>
